@@ -1,3 +1,3 @@
-g++ -o program program.cpp
+g++ -o FileName FileName.cpp
 
-gcc -o InsertionSort SgaoInsertionSort.cpp
+gcc -o ProgramName FileName.cpp
