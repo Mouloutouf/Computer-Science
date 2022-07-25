@@ -1,7 +1,7 @@
 // Given the Head Node of a Linked List, Determine if there is a Cycle in the List
 // At Several Steps in the Solution, I Check for NULL to see if the List Stops. If it does, then there is no Cycle
 // Otherwise, I use Two Pointers to Check for the Cycle. I have a First Pointer that moves One Node each Step,
-// and a Second Pointer that moves Two Nodes each Step. That way, if the List does Cycle, there will Always be a Step during which
+// and a Second Pointer that moves Two Nodes each Step. That way, if the List does Cycle, there will be a Step on which
 // both Pointers will be on the Same Node. While both Pointers are on Different Nodes, we continue to Cycle until eventually, an equality is found
 
 struct ListNode {
