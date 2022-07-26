@@ -48,7 +48,7 @@ public:
     }
 };
 
-class OtherSolution {
+class BetterSolution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode *ptr1 = headA, *ptr2 = headB;
@@ -74,10 +74,14 @@ public:
     }
 };
 
-// I just Do Not Understand this Solution. There is No Null Check, No Condition to Break out of the Loop if there is no Intersection.
-// How the fuck does this not create an Infinite Loop. I don't understand.
+// This is absolute Genius.
+// Since both Pointers will be moving at the same Distance from the End of both Lists once they both have switched, there will inevitably be a moment where
+// both pointers have the same value, even if there is no intersection between the two lists. This is because if there is no intersection, then the moment
+// when they reach the same value is when they both reach the end of their list, e.g. they both become nullptr.
+// This while loop is therefore certain to exit at some point.
+// Then we just have to return any of the two pointers and we know for sure we have the correct result.
 
-class WhatTheActualFuckSolution {
+class BrilliantSolution {
     public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode *ptr1 = headA, *ptr2 = headB;

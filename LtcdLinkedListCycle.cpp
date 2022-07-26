@@ -39,13 +39,10 @@ public:
 // Here, While the Fast Pointer Has Not Found an End to the List, we Continue
 // Every time we increment our Pointers we check for Equality. If it is Found, the List has a Cycle
 
-class OtherSolution{
+class BetterSolution{
 public:
     bool hasCycle(ListNode *head){
-        if (head == nullptr)
-            return false;
-        ListNode *fast, *slow;
-        fast = slow = head;
+        ListNode *fast = head, *slow = head;
         while (fast != nullptr && fast->next != nullptr){
             fast = fast->next->next;
             slow = slow->next;

@@ -47,7 +47,7 @@ public:
 // We then assign head to the slow pointer, and proceed with a Second Cycle, that will break when both pointers are on the same Node.
 // When we do, we just return any of the two pointers (since they are identical) which will return the Start Node.
 
-class OtherSolution{
+class BetterSolution{
 public:
     ListNode *detectCycle(ListNode *head) {
         ListNode *slow = head, *fast = head;
