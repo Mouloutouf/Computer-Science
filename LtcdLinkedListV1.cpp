@@ -5,26 +5,26 @@
 
 using namespace std;
 
-class MyLinkedList {
+class LinkedList {
 public:
     int val;
     
-    MyLinkedList* next;
-    MyLinkedList* prev;
+    LinkedList* next;
+    LinkedList* prev;
     
-    MyLinkedList* head;
+    LinkedList* head;
     
-    MyLinkedList() : val(0), next(NULL), prev(NULL)
+    LinkedList() : val(0), next(NULL), prev(NULL)
     {
         head = this;
     }
-    MyLinkedList(int _val, MyLinkedList* _next = nullptr, MyLinkedList* _prev = nullptr)
+    LinkedList(int _val, LinkedList* _next = nullptr, LinkedList* _prev = nullptr)
     : val(_val), next(_next), prev(_prev)
     {
     }
     
-    MyLinkedList* getNode(int _index) {
-        MyLinkedList* node = head;
+    LinkedList* getNode(int _index) {
+        LinkedList* node = head;
         for (int i = 0; i < _index; i++) {
             if (node->next == nullptr) {
                 return nullptr;
@@ -35,7 +35,7 @@ public:
     }
     
     int get(int _index) {
-        MyLinkedList* node = getNode(_index);
+        LinkedList* node = getNode(_index);
         if (node == nullptr) {
             return -1;
         }
@@ -43,15 +43,15 @@ public:
     }
     
     void addAtHead(int _val) {
-        MyLinkedList* newHead = new MyLinkedList(_val, this);
+        LinkedList* newHead = new LinkedList(_val, this);
         prev = newHead;
         head = newHead;
     }
     
     void addAtTail(int _val) {
-        MyLinkedList* newNode = new MyLinkedList(_val);
+        LinkedList* newNode = new LinkedList(_val);
         int c = 0;
-        MyLinkedList* n = getNode(c);
+        LinkedList* n = getNode(c);
         while (n->next != nullptr) {
             c++;
         }
@@ -60,7 +60,7 @@ public:
     }
     
     void addAtIndex(int _index, int _val) {
-        MyLinkedList* prevNode = getNode(_index);
+        LinkedList* prevNode = getNode(_index);
         if (prevNode == nullptr) {
             return;
         }
@@ -68,14 +68,14 @@ public:
             addAtTail(_val);
             return;
         }
-        MyLinkedList* nextNode = prevNode->next;
-        MyLinkedList* newNode = new MyLinkedList(_val, nextNode, prevNode);
+        LinkedList* nextNode = prevNode->next;
+        LinkedList* newNode = new LinkedList(_val, nextNode, prevNode);
         prevNode->next = newNode;
         nextNode->prev = newNode;
     }
     
     void deleteAtIndex(int _index) {
-        MyLinkedList* delNode = getNode(_index);
+        LinkedList* delNode = getNode(_index);
         if (delNode == nullptr) {
             return;
         }
@@ -84,17 +84,17 @@ public:
             return;
         }
         else if (delNode->next == nullptr) {
-            MyLinkedList* prevNode = delNode->prev;
+            LinkedList* prevNode = delNode->prev;
             prevNode->next = nullptr;
         }
         else if (delNode->prev == nullptr) {
-            MyLinkedList* nextNode = delNode->next;
+            LinkedList* nextNode = delNode->next;
             nextNode->prev = nullptr;
             nextNode->head = nextNode;
         }
         else {
-            MyLinkedList* nextNode = delNode->next;
-            MyLinkedList* prevNode = delNode->prev;
+            LinkedList* nextNode = delNode->next;
+            LinkedList* prevNode = delNode->prev;
             nextNode->prev = prevNode;
             prevNode->next = nextNode;
         }
