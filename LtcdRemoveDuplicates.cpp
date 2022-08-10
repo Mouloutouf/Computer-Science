@@ -1,6 +1,9 @@
 // Remove duplicates from list
 // Ex : [0,0,2,4,4,6,7,7,7,7] -> [0,2,4,6,7]
 
+#include <vector>
+using namespace std;
+
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {

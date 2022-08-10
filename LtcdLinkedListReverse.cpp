@@ -34,3 +34,17 @@ public:
         return prev;
     }
 };
+
+class BetterSolution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode *cur = head, *newHead = head;
+        while (cur != nullptr && cur->next != nullptr){
+            ListNode *node = cur->next;
+            cur->next = node->next;
+            node->next = newHead;
+            newHead = node;
+        }
+        return newHead;
+    }
+};

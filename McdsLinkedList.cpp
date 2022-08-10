@@ -3,7 +3,6 @@ using namespace std;
 
 class LinkNode {
 public:
-
     int value;
     LinkNode* link;
     
@@ -13,7 +12,7 @@ public:
     }
 }
 
-int main() {
+main() {
     // Old School Initialization
     LinkNode* A;
     LinkNode* n = (LinkNode*)malloc(sizeof(LinkNode));

@@ -2,6 +2,9 @@
 // Ex : [17,18,5,4,6,1] becomes -> [18,6,6,6,1,-1]
 // And replace the last element of the list with -1
 
+#include <vector>
+using namespace std;
+
 class Solution1 {
     // Slow solution
     // Loop the list forward, and use a second Loop to check for the maximum value
