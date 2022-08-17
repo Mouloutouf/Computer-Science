@@ -1,6 +1,11 @@
+#define OLD
+
 #include <vector>
 using namespace std;
 
+// Broken Implementation Does not Work
+
+#ifndef OLD
 class MyQueue {
 public:
     vector<int> values;
@@ -34,6 +39,68 @@ public:
     
     bool empty() {
         return out == nullptr;
+    }
+};
+#endif
+
+// Very Fast and Cheap Memory
+// Using Linked List for Queue Design is Very Efficient
+
+class Queue {
+public:
+    struct Node{
+        int data;
+        Node *next;
+
+        Node()
+        : data(-1), next(nullptr)
+        {
+        }
+
+        Node(int _data, Node *_next)
+        : data(_data), next(_next)
+        {
+        }
+    };
+
+    Node *head, *tail;
+
+    Queue()
+    : head(nullptr), tail(nullptr)
+    {
+    }
+    
+    void push(int x) {
+        Node *node = new Node(x, nullptr);
+        if (tail != nullptr){
+            tail->next = node;
+        }
+        tail = node;
+        if (head == nullptr){
+            head = node;
+        }
+    }
+    
+    int pop() {
+        int data = head->data;
+        if (head != nullptr){
+            head = head->next;
+        }
+        if (head == nullptr){
+            tail = nullptr;
+        }
+        return data;
+    }
+    
+    int peek() {
+        if (head != nullptr){
+            return head->data;
+        }
+        return 0; // Should return an exception
+    }
+    
+    bool empty() {
+        return head == nullptr;
     }
 };
 
