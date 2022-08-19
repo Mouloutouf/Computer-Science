@@ -1,8 +1,14 @@
+#define OLD
+
 #include <stack>
+#include <map>
 #include <string>
 
 using namespace std;
 
+// Old Solution does not work
+
+#ifndef OLD
 class Solution {
 public:
     bool isValid(string s) {
@@ -24,5 +30,39 @@ public:
                 }
             }
         }
+    }
+};
+#endif
+
+class ActualSolution {
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        map<char, char> p = {{')', '('}, {']', '['}, {'}', '{'}};
+        for (char& c : s){
+            // if the char is a closing brace
+            if (p.count(c)){
+                // check if the last element in the stack is the corresponding open brace
+                // if it is remove it from the stack and continue
+                if (st.empty() == false && st.top() == p[c]){
+                    st.pop();
+                }
+                // if it is not then the string is not valid
+                else{
+                    return false;
+                }
+            }
+            // if the char is an open brace add it to the stack
+            else{
+                st.push(c);
+            }
+        }
+        // at the end if the stack is empty then all braces were open and closed
+        // the string is therefore valid
+        if (st.empty()){
+            return true;
+        }
+        // otherwise it is not
+        return false;
     }
 };
