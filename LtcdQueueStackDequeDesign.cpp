@@ -255,15 +255,18 @@ public:
     }
 };
 
-class MyCircularQueue {
+// More Efficient way of making a Queue with an Array. With this implementation, just like an Array, it has a fixed size which you cannot change.
+// This just means you have a maximum of elements you can put in the queue, at all times. But you can add and remove elements from it indefinitely.
+
+class TestCircularQueue {
     vector<int> queue;
     int head, tail;
 public:
-    MyCircularQueue(int k) {
+    TestCircularQueue(int k) {
         queue = vector<int>(k);
         head = tail = -1;
     }
-    bool enQueue(int value) {
+    bool enqueue(int value) {
         if (tail < 0){
             head = tail = 0;
         }
@@ -282,7 +285,7 @@ public:
         queue[tail] = value;
         return true;
     }
-    bool deQueue() {
+    bool dequeue() {
         if (head < 0){
             return false;
         }
@@ -296,28 +299,86 @@ public:
         }
         return true;
     }
-    int Front() {
+    int front() {
         if (head < 0){
             // Queue is empty
             return -1;
         }
         return queue[head];
     }
-    int Rear() {
+    int rear() {
         if (tail < 0){
             // Queue is empty
             return -1;
         }
         return queue[tail];
     }
-    bool isEmpty() {
+    bool empty() {
         return tail == -1;
     }
-    bool isFull() {
+    bool full() {
         int v = tail + 1;
         if (v >= queue.size()){
             v = 0;
         }
         return v == head;
+    }
+};
+
+// Better implem using modulo operator for clamping indexes to the size of the array
+// Also uses own methods for checks instead of custom checks
+// Removed the tail reset and value caching done on enqueue and full in the above implem
+
+class CircularQueue {
+    vector<int> queue;
+    int head, tail;
+    int size;
+public:
+    CircularQueue(int k) {
+        queue.resize(k);
+        head = tail = -1;
+        size = k;
+    }
+    bool enqueue(int value) {
+        if (full()){
+            return false;
+        }
+        if (empty()){
+            head = tail = 0;
+        }
+        else{
+            tail = (tail + 1) % size;
+        }
+        queue[tail] = value;
+        return true;
+    }
+    bool dequeue() {
+        if (empty()){
+            return false;
+        }
+        if (head == tail){
+            head = tail = -1;
+            return true;
+        }
+        head = (head + 1) % size;
+        return true;
+    }
+    int front() {
+        if (empty()){
+            return -1;
+        }
+        return queue[head];
+    }
+    int rear() {
+        if (empty()){
+            return -1;
+        }
+        return queue[tail];
+    }
+    bool empty() {
+        return tail == -1;
+    }
+    bool full() {
+        return (tail + 1) % size == head;
     }
 };
