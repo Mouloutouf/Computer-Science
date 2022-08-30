@@ -64,7 +64,7 @@ public:
 };
 
 // Stack Design with Linked List
-// Uses Only One Pointer Top to Access Elements from a Single End of the List
+// Uses Only One Pointer Top to Access Elements from the Head of the List
 // When Adding an Element we just replace Top with the New Element and make it point to the Former
 // When Removing an Element we just make Top point to the Next Element, then Return the Value of the Node we Removed
 
@@ -217,5 +217,107 @@ public:
     
     bool empty(){
         return head == nullptr;
+    }
+};
+
+#include <vector>
+
+using namespace std;
+
+// This is a very inefficient but straightforward implementation of a Queue
+// We just add elements to a dynamic array, from the tail so to speak.
+// And to remove elements we just increase an index that points to the front of the Queue.
+// This will make the array containing the queue grow in size indefinitely. It works but its not great.
+
+class ArrayQueue {
+    vector<int> queue;
+    int head;
+public:
+    ArrayQueue() {
+        head = 0;
+    }
+    bool enqueue(int x) {
+        queue.push_back(x);
+        return true;
+    }
+    bool dequeue() {
+        if (empty()) {
+            return false;
+        }
+        head++;
+        return true;
+    }
+    int front() {
+        return queue[head];
+    }
+    bool empty() {
+        return head >= queue.size();
+    }
+};
+
+class MyCircularQueue {
+    vector<int> queue;
+    int head, tail;
+public:
+    MyCircularQueue(int k) {
+        queue = vector<int>(k);
+        head = tail = -1;
+    }
+    bool enQueue(int value) {
+        if (tail < 0){
+            head = tail = 0;
+        }
+        else{
+            int p = tail;
+            tail++;
+            if (tail >= queue.size()){
+                tail = 0;
+            }
+            if (tail == head){
+                // Queue is full
+                tail = p;
+                return false;
+            }
+        }
+        queue[tail] = value;
+        return true;
+    }
+    bool deQueue() {
+        if (head < 0){
+            return false;
+        }
+        if (head == tail){
+            head = tail = -1;
+            return true;
+        }
+        head++;
+        if (head >= queue.size()){
+            head = 0;
+        }
+        return true;
+    }
+    int Front() {
+        if (head < 0){
+            // Queue is empty
+            return -1;
+        }
+        return queue[head];
+    }
+    int Rear() {
+        if (tail < 0){
+            // Queue is empty
+            return -1;
+        }
+        return queue[tail];
+    }
+    bool isEmpty() {
+        return tail == -1;
+    }
+    bool isFull() {
+        int v = tail + 1;
+        if (v >= queue.size()){
+            v = 0;
+        }
+        return v == head;
     }
 };
