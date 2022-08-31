@@ -221,7 +221,6 @@ public:
 };
 
 #include <vector>
-
 using namespace std;
 
 // This is a very inefficient but straightforward implementation of a Queue
