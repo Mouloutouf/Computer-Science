@@ -201,23 +201,3 @@ public:
         }
     }
 };
-
-// Types of Graphs :
-
-// Base graphs :
-// Undirected Graphs -> A Graph of Nodes where Edges have no orientation (nodes connected by an edge point to each other, the edge is doubly-linked)
-    // Edges represent connections between two distinct nodes
-// Directed Graphs -> A Graph of Nodes where Edges have an orientation (nodes connect to other nodes but not necessarily to each other, the edge is single-link)
-    // Edges represent a pointer from node to node
-    // As such, in a Directed Graph, nodes can have an edge to themselves, therefore point to themselves
-// Weighted Graphs -> A Graph of Nodes where Edges have a weight (weight are arbitrary values assigned to edges to characterize them)
-    // Edges are usually denoted as a triplet (u, v, w) with u : where the edge is coming from, v : where the edge is going to, w : the weight of the edge
-    // Weighted Graphs can be Directed or Undirected
-// All of the above Graphs can have Cycles
-
-// Special Graphs :
-// Tree Graphs -> A Tree is an Undirected Graph that has no Cycles
-// Rooted Tree Graphs -> A Directed Tree where every node either points away or towards a root node (the root node is either the start or the end of the graph)
-    // An Out-Tree is when the root is the start of the graph, and In-Tree is when the root is the end of the graph
-// Directed Acyclic Graphs (DAG) -> A Directed Graph with no Cycles
-    // All Rooted Trees are DAGs, yet not all DAGs are Rooted Trees
