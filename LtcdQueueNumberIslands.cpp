@@ -29,7 +29,7 @@ public:
                 // explore the island using breadth first search
                 while (rowSearch.size() > 0){
                     // select a land tile from the search queues
-                    int a = rowSearch.back(), b = columnSearch.back();
+                    int a = rowSearch.front(), b = columnSearch.front();
                     rowSearch.pop();
                     columnSearch.pop();
                     // search the neighbours of the current land tile
@@ -58,5 +58,60 @@ public:
             }
         }
         return islands;
+    }
+};
+
+// Loop through the grid until a land tile is found then depth first search the whole island from that tile and replace all land tiles with water tiles
+
+class BetterSolution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int islands = 0;
+        for (int i = 0; i < grid.size(); ++i){
+            for (int j = 0; j < grid[0].size(); ++j){
+                if (grid[i][j] == '1'){
+                    dfs(grid, i, j);
+                    islands++;
+                }
+            }
+        }
+        return islands;
+    }
+    void dfs(vector<vector<char>>& grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.size() || y >= grid[0].size() || grid[x][y] == '0')
+            return;
+        grid[x][y] = '0';
+        dfs(grid, x + 1, y);
+        dfs(grid, x - 1, y);
+        dfs(grid, x, y + 1);
+        dfs(grid, x, y - 1);
+    }
+};
+
+// Same solution but with grid sizes passed through the method and visited tiles marked with a new index
+
+class VariantSolution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int islands = 0;
+        int rows = grid.size(), columns = grid[0].size();
+        for (int i = 0; i < grid.size(); ++i){
+            for (int j = 0; j < grid[0].size(); ++j){
+                if (grid[i][j] == '1'){
+                    dfs(grid, rows, columns, i, j);
+                    islands++;
+                }
+            }
+        }
+        return islands;
+    }
+    void dfs(vector<vector<char>>& grid, int rows, int columns, int x, int y) {
+        if (x < 0 || y < 0 || x >= rows || y >= columns || grid[x][y] != '1')
+            return;
+        grid[x][y] = '2';
+        dfs(grid, rows, columns, x + 1, y);
+        dfs(grid, rows, columns, x - 1, y);
+        dfs(grid, rows, columns, x, y + 1);
+        dfs(grid, rows, columns, x, y - 1);
     }
 };

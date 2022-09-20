@@ -15,13 +15,13 @@ public:
         Node(int i){
             index = i;
         }
-        Node(int i, vector<Node*> ngh){
+        Node(int i, vector<Node*> _neighbours){
             index = i;
-            neighbours = ngh;
+            neighbours = _neighbours;
         }
 
-        void AddNeighbour(Node* n){
-            neighbours.push_back(n);
+        void AddNeighbour(Node* _node){
+            neighbours.push_back(_node);
         }
     };
 
@@ -32,18 +32,18 @@ public:
         Graph(){
             nodes = map<int, Node>();
         }
-        Graph(vector<Node>& g){
-            for(Node& n : g){
+        Graph(vector<Node>& _graph){
+            for(Node& n : _graph){
                 nodes.emplace(n.index, n);
             }
-            size = g.size();
+            size = _graph.size();
         }
 
         Node* Get(int i){
             return &nodes[i];
         }
-        void Add(Node& n){
-            nodes.emplace(n.index, n);
+        void Add(Node& _node){
+            nodes.emplace(_node.index, _node);
             size++;
         }
         void Add(int i){
@@ -58,48 +58,48 @@ public:
     BreadthFirstSearch()
     {
     }
-    BreadthFirstSearch(Graph& g){
-        size = g.size;
-        graph = g;
+    BreadthFirstSearch(Graph& _graph){
+        size = _graph.size;
+        graph = _graph;
     }
 
-    vector<Node*> SearchPath(int s, int e){
-        vector<Node*> p = Solve(s);
-        return Reconstruct(s, e, p);
+    vector<Node*> SearchPath(int _start, int _end){
+        vector<Node*> previous = Solve(_start);
+        return Reconstruct(_start, _end, previous);
     }
-    vector<Node*> Solve(int s){
-        queue<int> q;
-        q.push(s);
+    vector<Node*> Solve(int _start){
+        queue<int> search;
+        search.push(_start);
 
-        vector<bool> v(size, false);
-        v[s] = true;
+        vector<bool> visited(size, false);
+        visited[_start] = true;
 
-        vector<Node*> p(size, nullptr);
+        vector<Node*> previous(size, nullptr);
 
-        while (q.empty() == false){
-            int i = q.front();
-            q.pop();
+        while (search.empty() == false){
+            int i = search.front();
+            search.pop();
 
             Node* node = graph.Get(i);
-            for (Node* n : node->neighbours){
-                if (v[n->index] == false){
-                    q.push(n->index);
-                    v[n->index] = true;
-                    p[n->index] = node;
+            for (Node* neighbour : node->neighbours){
+                if (visited[neighbour->index] == false){
+                    search.push(neighbour->index);
+                    visited[neighbour->index] = true;
+                    previous[neighbour->index] = node;
                 }
             }
         }
-        return p;
+        return previous;
     }
-    vector<Node*> Reconstruct(int s, int e, vector<Node*>& p){
+    vector<Node*> Reconstruct(int _start, int _end, vector<Node*>& _previous){
         vector<Node*> path;
-        for (Node* n = graph.Get(e); n != nullptr; n = p[n->index]){
+        for (Node* n = graph.Get(_end); n != nullptr; n = _previous[n->index]){
             path.push_back(n);
         }
 
         reverse(path.begin(), path.end());
         
-        if (path[0] == graph.Get(s)){
+        if (path[0] == graph.Get(_start)){
             return path;
         }
         return vector<Node*>();
