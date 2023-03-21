@@ -51,13 +51,13 @@ using namespace std;
 // Common Problems :
 // Shortest Path Problem -> Pretty straightforward we need to find the shortest path, if any, from one node to another in our Graph
     // Breadth-First Seach for Unweighted Graphs
-    // Djikstra, Bellman, Floyd
+    // Dijkstra, Bellman, Floyd
     // A* and many other Algorithms
 // Connectivity -> Is there a path between a node and another node in our Graph
     // Any search Algorithm can work, such as Depth-First Search or Breadth-First Search
     // Use the Union Find Data Structure
 // Negative Cycles -> Is there a Cycle in our Directed Graph that is impossible to escape from, especially if the Graph is Weighted and you Cycle through it using costs
-    // Bellman and Floyd Algortihms
+    // Bellman and Floyd Algorithms
 // Strongly Connected Components -> Are there Self-Contained Cycles in our Directed Graph, meaning the smallest sets of Nodes which you can cycle through in a Graph
     // Tarjan and Kosaraju Algorithms
 // Traveling Salesman Problem -> A classic problem of finding the shortest route that visits all nodes exactly once and returns to the start node. This is a very complicated problem
