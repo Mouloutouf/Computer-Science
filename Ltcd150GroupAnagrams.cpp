@@ -1,8 +1,13 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <unordered_map>
+#include <algorithm>
 
 using namespace std;
+
+// This solution was a good try, taking from the first anagram exercise and applying it to multiple values, adding them to the list as we go
+// and breaking from the anagram check whenever we found a match. But it obviously was not enough, as this might be O(n2) in the worst case scenario.
 
 class Solution
 {
@@ -74,5 +79,85 @@ public:
         }
 
         return anagrams;
+    }
+};
+
+// This solution is way better since it uses the simpler sort solution of the first anagram exercise. Which makes it more efficient here.
+// But here, we actually don't need to compare anagrams to each other, we just need to store them at the right place.
+// To do that, we use a dictionary to store the group indexes for each anagram we encounter, which allows us to directly store a word that matches an anagram to the right group
+// If the anagram is not registered, then we have found a new one, therefore we create a new group within our result list, and register this group index in our anagram dictionary
+
+class BestSolution
+{
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs)
+    {
+        if (strs.size() <= 0)
+            return {{}};
+
+        // stores all values by groups of anagrams
+        vector<vector<string>> result;
+        // stores all anagrams with their group index
+        unordered_map<string, int> anagrams;
+
+        for (int i = 0; i < strs.size(); ++i)
+        {
+            // take the value and sort it -> turn into anagram so to speak
+            string str = strs[i];
+            sort(str.begin(), str.end());
+
+            // if anagram is already present in the anagrams dictionary
+            if (anagrams.count(str))
+            {
+                // then add the value in the result list within the group given by anagram
+                result[anagrams[str]].push_back(strs[i]);
+            }
+            // otherwise this is a new anagram / new value
+            else
+            {
+                // add a new group to the result list and put the value in it
+                result.push_back({strs[i]});
+                // register the anagram in anagrams with the index of the newly created group
+                anagrams[str] = result.size() - 1;
+            }
+        }
+
+        return result;
+    }
+};
+
+class VerboseSolution
+{
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& words)
+    {
+        if (words.size() <= 0)
+            return {{}};
+
+        vector<vector<string>> groups;
+        unordered_map<string, int> anagramGroupIndexes;
+
+        for (int i = 0; i < words.size(); ++i)
+        {
+            string& word = words[i];
+
+            string anagram = words[i];
+            sort(anagram.begin(), anagram.end());
+
+            if (anagramGroupIndexes.count(anagram))
+            {
+                int groupIndex = anagramGroupIndexes[anagram];
+                groups[groupIndex].push_back(word);
+            }
+            else
+            {
+                groups.push_back({word});
+
+                int newGroupIndex = groups.size() - 1;
+                anagramGroupIndexes[anagram] = newGroupIndex;
+            }
+        }
+
+        return groups;
     }
 };
