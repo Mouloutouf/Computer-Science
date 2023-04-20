@@ -12,7 +12,8 @@ using namespace std;
 // - if there are both leaf nodes, search both leaf nodes, then select the one with the greater depth, increase the depth
 // In the end, return the deepest node and its depth
 
-// Essentially, using a pair of node/depth allows us to perform the max check when both leaf nodes are present, so that we can check which one is greater using the second value from the pair
+// Essentially, using a pair of node/depth allows us to perform the max check when both leaf nodes are present,
+// so that we can check which one is greater using the second value from the pair
 
 struct Node
 {
