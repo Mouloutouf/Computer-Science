@@ -9,16 +9,42 @@ using namespace std;
 // Fortunately every single language, including C++, have a sort method already implemented for us.
 // Then we can just search in O(n) time the array, and if we find two following values with the same value, then there is a duplicate.
 
-class BestSolution
+// I PREFER THIS SOLUTION
+class Solution
 {
 public:
     bool containsDuplicate(vector<int>& nums)
     {
+        if (nums.size() <= 1)
+            return false;
+
         sort(nums.begin(), nums.end());
+
         for (int i = 0; i < nums.size() - 1; ++i)
         {
             if (nums[i] == nums[i + 1])
                 return true;
+        }
+        return false;
+    }
+};
+
+class OtherSolution
+{
+public:
+    bool containsDuplicate(vector<int>& nums)
+    {
+        if (nums.size() <= 1)
+            return false;
+
+        sort(nums.begin(), nums.end());
+
+        int x = nums[0];
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            if (nums[i] == x)
+                return true;
+            x = nums[i];
         }
         return false;
     }

@@ -15,10 +15,9 @@ public:
     {
         for (int i = 0; i < nums.size(); ++i)
         {
-            int val = nums[i];
             for (int j = 0; j < nums.size(); ++j)
             {
-                if (j != i && val + nums[j] == target)
+                if (j != i && nums[i] + nums[j] == target)
                     return {i, j};
             }
         }
@@ -26,24 +25,25 @@ public:
     }
 };
 
-// Better O(n) solution, using a map to store each value we come across, then for each value, substract the target, and then search for the remainder inside the map.
-// If it is present, then a previous value can be matched to add up to target, in which case we return their indexes.
-// Memory is O(n).
+// The solution here is to use a map in order to store the values and their indexes as we go along the list. And for each element in the list, subtract its value with the target,
+// in order to find the delta or remainder necessary to reach the target. We then use map.find() in order to find that delta inside the map, and if we do, then we do have two values
+// we can add up to target, we therefore return both the index of the value we subtracted from target, and the index of the delta value, which we already stored.
+// This solution is O(n).
 
-class BestSolution
+class Solution
 {
 public:
     vector<int> twoSum(vector<int>& nums, int target)
     {
         map<int, int> map;
-        vector<int> result;
         for (int i = 0; i < nums.size(); ++i)
         {
-            int remainder = target - nums[i];
-            if (map.find(remainder) != map.end())
-                return {map[remainder], i};
+            int r = target - nums[i];
+            if (map.find(r) != map.end())
+                return {map[r], i};
             
             map[nums[i]] = i;
         }
+        return {};
     }
 };
