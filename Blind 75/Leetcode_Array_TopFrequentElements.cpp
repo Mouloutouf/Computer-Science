@@ -4,6 +4,8 @@
 #include <set>
 using namespace std;
 
+// EXPLANATION
+
 // Given an array nums, return the k most frequent elements, meaning the elements that appear the most in that array
 // Example : [1,1,1,2,2,3], k = 2, should return [1,2] because 1 and 2 are the elements that appear the most in that array
 

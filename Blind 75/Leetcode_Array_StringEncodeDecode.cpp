@@ -4,6 +4,10 @@
 
 using namespace std;
 
+// TODO
+
+// This solution does not work
+
 class Solution {
 public:
 
@@ -37,6 +41,8 @@ public:
         return decodedStrs;
     }
 };
+
+// This is the correct solution
 
 class BestSolution {
 public:
@@ -77,6 +83,8 @@ public:
         return decodedStrs;
     }
 };
+
+// Another way to do this
 
 class OtherBestSolution {
 public:

@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// EXPLANATION
+
 // Given an array nums, return an array such that each element at index i is equal to the product of every number except the number at i.
 // Example : [1,2,3,4], should return [24,12,8,6] which are the multiplications of every number of the array except the number at the same index.
 // This solution should run in O(n) time and without the use of the division operator.

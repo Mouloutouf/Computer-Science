@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// EXPLANATION
+
 // Given two strings a and b, find if they are the anagram of one another (meaning they have the exact same letters).
 
 // This is the best solution, runs in O(n) with memory O(26)

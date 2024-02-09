@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+// EXPLANATION
+
 // Given an array nums of integers, find if any value appears more than once
 
 // This is the most basic if not the first coding exercise anyone comes across.
@@ -9,7 +11,6 @@ using namespace std;
 // Fortunately every single language, including C++, have a sort method already implemented for us.
 // Then we can just search in O(n) time the array, and if we find two following values with the same value, then there is a duplicate.
 
-// I PREFER THIS SOLUTION
 class Solution
 {
 public:

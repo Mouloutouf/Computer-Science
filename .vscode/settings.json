@@ -55,6 +55,9 @@
         "unordered_set": "cpp",
         "set": "cpp",
         "queue": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "optional": "cpp",
+        "ranges": "cpp",
+        "span": "cpp"
     }
 }

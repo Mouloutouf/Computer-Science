@@ -3,6 +3,8 @@
 #include <map>
 using namespace std;
 
+// EXPLANATION
+
 // Given an array nums of integers and a target value, find the two values that add up to target. There is exactly one solution for each array.
 
 // Basic and bad O(n2) solution, where we compare every value in the array with each other until we find a pair that adds up to target, then return their indexes.

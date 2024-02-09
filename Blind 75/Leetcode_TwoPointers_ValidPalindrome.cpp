@@ -3,6 +3,10 @@
 
 using namespace std;
 
+// TODO
+
+// Memory inefficient solution with two new strings
+
 class Solution {
 public:
 
@@ -22,6 +26,8 @@ public:
         return newStr == reverseStr;
     }
 };
+
+// This is the correct solution, runs in O(n) time and in O(1) space
 
 class BestSolution {
 public:
