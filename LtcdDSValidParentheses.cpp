@@ -1,4 +1,3 @@
-#define OLD
 
 #include <stack>
 #include <map>
@@ -8,7 +7,6 @@ using namespace std;
 
 // Old Solution does not work
 
-#ifndef OLD
 class Solution {
 public:
     bool isValid(string s) {
@@ -32,7 +30,6 @@ public:
         }
     }
 };
-#endif
 
 class ActualSolution {
 public:
