@@ -39,3 +39,31 @@ public:
         return valid(root, INT_MIN, INT_MAX);
     }
 };
+
+// This is the working solution with the edge case exception handled.
+// Just had to take the largest possible type and set the MIN and MAX manually.
+// So essentially we are not solving the edge case at all, just taking a large type so that Leetcode shuts the fuck up about it.
+// Which is very much fine by me.
+
+class SolutionWithoutException {
+public:
+
+    bool valid(TreeNode* node, long long left, long long right)
+    {
+        if (node == nullptr)
+            return true;
+
+        if (node->val < left || node->val > right)
+            return false;
+        
+        return valid(node->left, left, node->val) && valid(node->right, node->val, right);
+    }
+
+    bool isValidBST(TreeNode* root)
+    {
+        long long int MIN = -1000000000000;
+        long long int MAX = 1000000000000;
+
+        return valid(root, MIN, MAX);
+    }
+};
