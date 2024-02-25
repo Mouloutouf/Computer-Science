@@ -16,7 +16,7 @@ struct TreeNode
 
 // TODO IMPORTANT
 
-// Does not work, need to fix edge case will null subtree
+// /!\ Does not work, need to fix edge case will null subtree. Need to look at C++ solution which uses a custom recursive method for this
 
 class TestSolution {
 public:
@@ -49,6 +49,8 @@ public:
 };
 
 // TODO ANALYSIS
+
+// This is not my code
 
 class Solution {
 public:
