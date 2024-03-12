@@ -14,6 +14,7 @@ using namespace std;
 class Solution
 {
 public:
+
     bool containsDuplicate(vector<int>& nums)
     {
         if (nums.size() <= 1)
@@ -33,6 +34,7 @@ public:
 class OtherSolution
 {
 public:
+
     bool containsDuplicate(vector<int>& nums)
     {
         if (nums.size() <= 1)
