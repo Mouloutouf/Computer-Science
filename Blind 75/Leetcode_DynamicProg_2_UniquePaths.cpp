@@ -2,7 +2,15 @@
 
 using namespace std;
 
-// TODO
+// EXPLANATION
+
+// Given an m x n grid, you have a robot placed at the top left tile, and an exit located at the bottom right tile. The robot can only either move right or down.
+// Return the amount of unique paths from its position to the exit.
+
+// Here we use classic dp programming backtracking, in order to first compute the amount of paths from the exit, and then move back towards the start,
+// while adding these paths combinations together, and eventually, retrieve the total unique paths at the start tile.
+
+// See picture for problem explanation.
 
 class Solution {
 public:

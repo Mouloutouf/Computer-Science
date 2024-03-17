@@ -3,6 +3,7 @@
 using namespace std;
 
 // TODO
+
 // Here we try to find the min value of the array using binary search. The array can be rotated, meaning it may be split in two parts.
 // We use the binary search in order to know in which part of the array we are. Whenever we find ourselves within a sorted portion, we try to update the minimum value.
 // Otherwise we just continue with the binary search until we find the minimum value.

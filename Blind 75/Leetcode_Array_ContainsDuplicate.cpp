@@ -11,8 +11,7 @@ using namespace std;
 // Fortunately every single language, including C++, have a sort method already implemented for us.
 // Then we can just search in O(n) time the array, and if we find two following values with the same value, then there is a duplicate.
 
-class Solution
-{
+class Solution {
 public:
 
     bool containsDuplicate(vector<int>& nums)
@@ -31,8 +30,7 @@ public:
     }
 };
 
-class OtherSolution
-{
+class OtherSolution {
 public:
 
     bool containsDuplicate(vector<int>& nums)

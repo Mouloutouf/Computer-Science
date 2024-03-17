@@ -13,7 +13,10 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-// TODO
+// EXPLANATION
+
+// This is an extension of the same binary tree problem, but here we need to do it multiple times, for each possible subtrees in the tree.
+// See code for explanation.
 
 class Solution {
 public:

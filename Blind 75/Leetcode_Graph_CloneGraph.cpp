@@ -13,7 +13,14 @@ public:
     Node(int _val, vector<Node*> _neighbors) : val(_val), neighbors(_neighbors) {}
 };
 
-// TODO
+// EXPLANATION
+
+// Given an undirected connected graph, return an exact copy of that graph.
+
+// Here we just go through the nodes of the graph recursively, copy them as we go along, and assign them as neighbors.
+// But in order to know if we have already cloned a node, we use a map to store the old and new pointer adress of the 'same' node, and check it to see if we have already cloned the node or not.
+
+// The code is quite straightforward.
 
 class Solution {
 public:

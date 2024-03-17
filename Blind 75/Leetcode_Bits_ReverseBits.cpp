@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// EXPLANATION
+
 // Reverse a given 32 bits unsigned integer
 
 // Here we essentially loop, to retrieve the most left bit from the input n, then place it at the most right bit from the output result.

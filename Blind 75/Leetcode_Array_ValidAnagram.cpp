@@ -16,9 +16,9 @@ using namespace std;
 // After that, we just go through our 26 letters, and check if any value is different than 0. If all values are at 0, then we do have an anagram.
 // since all letters from both words canceled each other.
 
-class Solution
-{
+class Solution {
 public:
+
     bool isAnagram(string s, string t)
     {
         if (s.length() != t.length())
@@ -44,9 +44,9 @@ public:
 // This has better memory O(1) but way worst runtime
 // Obviously here its pretty easy, we just sort them both then see if they come out the same.
 
-class EasySolution
-{
+class EasySolution {
 public:
+
     bool isAnagram(string s, string t)
     {
         sort(s.begin(), s.end());
@@ -58,9 +58,9 @@ public:
 // This solution is obviously slower but is more universal as it will work with any unicode alphabet no matter the culture
 // whereas the first solution only works in the context of having only lowercase latin characters
 
-class UniversalSolution
-{
+class UniversalSolution {
 public:
+
     bool isAnagram(string s, string t)
     {
         if (s.length() != t.length())

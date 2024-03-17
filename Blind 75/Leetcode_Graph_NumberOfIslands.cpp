@@ -4,7 +4,11 @@
 
 using namespace std;
 
-// TODO
+// EXPLANATION
+
+// This is the classic number of islands problem.
+
+// This first solution is good, but better adapted to Python, as it is a bit complex to write in C++
 
 class Solution {
 public:

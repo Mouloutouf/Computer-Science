@@ -10,9 +10,9 @@ using namespace std;
 // Basic and bad O(n2) solution, where we compare every value in the array with each other until we find a pair that adds up to target, then return their indexes.
 // Memory is O(1) though.
 
-class BadSolution
-{
+class BadSolution {
 public:
+
     vector<int> twoSum(vector<int>& nums, int target)
     {
         for (int i = 0; i < nums.size(); ++i)
@@ -32,9 +32,9 @@ public:
 // we can add up to target, we therefore return both the index of the value we subtracted from target, and the index of the delta value, which we already stored.
 // This solution is O(n).
 
-class Solution
-{
+class Solution {
 public:
+
     vector<int> twoSum(vector<int>& nums, int target)
     {
         map<int, int> map;

@@ -10,7 +10,12 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// TODO
+// EXPLANATION
+
+// This is a classic problem of reversing a linked list.
+
+// The solution is very obvious, only the implementation is a bit tedious, with keeping and replacing the right pointers in the right order.
+// Read this carefully in order to understand each operation, since they are very hard to visualize.
 
 class Solution {
 public:

@@ -15,6 +15,7 @@ using namespace std;
 
 class Solution {
 public:
+
     vector<vector<string>> groupAnagrams(vector<string>& strs)
     {
         if (strs.size() == 0)
@@ -45,9 +46,9 @@ public:
     }
 };
 
-class ExplainedSolution
-{
+class ExplainedSolution {
 public:
+
     vector<vector<string>> groupAnagrams(vector<string>& strs)
     {
         if (strs.size() <= 0)
@@ -84,9 +85,9 @@ public:
     }
 };
 
-class VerboseSolution
-{
+class VerboseSolution {
 public:
+
     vector<vector<string>> groupAnagrams(vector<string>& words)
     {
         if (words.size() <= 0)
@@ -123,9 +124,9 @@ public:
 // This solution was a good try, taking from the first anagram exercise and applying it to multiple values, adding them to the list as we go
 // and breaking from the anagram check whenever we found a match. But it obviously was not enough, as this might be O(n2) in the worst case scenario.
 
-class ComplicatedSolution
-{
+class ComplicatedSolution {
 public:
+
     bool checkAnagrams(string& s, vector<vector<string>>& anagrams)
     {
         for (int j = 0; j < anagrams.size(); ++j)

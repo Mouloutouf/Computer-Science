@@ -11,9 +11,11 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-// TODO
+// EXPLANATION
 
 // Given two Binary Trees, return if they are identical.
+
+// Just go through the tree recursively and keep comparing nodes of the same level inside both trees.
 
 class Solution {
 public:

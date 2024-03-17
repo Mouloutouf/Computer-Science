@@ -23,6 +23,7 @@ using namespace std;
 
 class Solution {
 public:
+
     vector<int> productExceptSelf(vector<int>& nums)
     {
         vector<int> result = vector<int>(nums.size());
