@@ -6,12 +6,18 @@
 
 using namespace std;
 
-// TODO
+// EXPLANATION
 
-// This solution is the best since it uses the simpler sort solution of the first anagram exercise. Which makes it more efficient here.
-// But here, we actually don't need to compare anagrams to each other, we just need to store them at the right place.
-// To do that, we use a dictionary to store the group indexes for each anagram we encounter, which allows us to directly store a word that matches an anagram to the right group
-// If the anagram is not registered, then we have found a new one, therefore we create a new group within our result list, and register this group index in our anagram dictionary
+// Given an array of strings, group the anagrams together.
+
+// The idea here is to go through the given strings, and match them to the correct group in the answer array.
+// The answer is represented by an array of arrays, so an array of groups essentially.
+// The way we will assign them to the correct groups is using a map, in which we will match the sorted version of a certain string (the letters of the anagram really), to an index,
+// which represents the group index in the answer array. This works since all anagrams when sorted give the same string (they have the exact same letters).
+// The protocol for this is simple : for every string, store a reference of it as a word, then make a copy and sort that copy, then check if that sorted copy already exist in the map,
+// if it does, retrieve the corresponding index and store the word in the answer array. If it does not then create a new group in the answer array, store the word,
+// then assign the index of that new group to the map with the sorted copy as key.
+// Do this until all strings are matched within a group, then return the answer.
 
 class Solution {
 public:
@@ -34,13 +40,10 @@ public:
             if (groupIndexes.count(anagram) == false)
             {
                 result.push_back({word});
-
                 groupIndexes[anagram] = result.size() - 1;
             }
             else
-            {
                 result[groupIndexes[anagram]].push_back(word);
-            }
         }
         return result;
     }
