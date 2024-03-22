@@ -21,6 +21,8 @@ using namespace std;
 // If they are not equal then some of the nodes are not connected to the other nodes, and the tree is therefore invalid.
 // Otherwise, the graph is a valid tree where all nodes are connected and in which there are no loops.
 
+// I do not know how fast in big O this runs
+
 struct Node
 {
     int val = 0;

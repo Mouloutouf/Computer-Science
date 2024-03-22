@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 // EXPLANATION
@@ -9,7 +10,9 @@ using namespace std;
 // This is the most basic if not the first coding exercise anyone comes across.
 // The most straightforward and powerful solution is to just sort the array, so that all values follow each other increasingly.
 // Fortunately every single language, including C++, have a sort method already implemented for us.
-// Then we can just search in O(n) time the array, and if we find two following values with the same value, then there is a duplicate.
+// Then we can just search the array, and if we find two following values with the same value, then there is a duplicate.
+
+// This runs in O(n) time and in O(1) space
 
 class Solution {
 public:

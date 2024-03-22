@@ -19,6 +19,8 @@ using namespace std;
 // Then we can just jump to the next prefix, and so on, until we have decoded all of our strings. And since we jump from prefix to prefix, this is guaranteed to work,
 // even if the words we encoded were all made up of numbers followed by '_'.
 
+// This runs in O(n) time and in O(n) space
+
 class Solution {
 public:
 

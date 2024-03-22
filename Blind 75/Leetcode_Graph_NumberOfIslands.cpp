@@ -10,6 +10,8 @@ using namespace std;
 
 // This first solution is good, but better adapted to Python, as it is a bit complex to write in C++
 
+// I do not know how fast in big O this runs
+
 class Solution {
 public:
 

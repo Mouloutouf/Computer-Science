@@ -14,6 +14,8 @@ using namespace std;
 // This whole thing is analog to solving the Fibonacci sequence, where we add a number with its previous value.
 // Hence why the solution is extremely straightforward.
 
+// This runs in O(n) time and in O(1) space
+
 class Solution {
 public:
 

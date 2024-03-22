@@ -17,6 +17,8 @@ using namespace std;
 // Given where we are, if we are in the biggest part, then we should search right, in order to try and end up in the lowest part, where the minimum value is.
 // If we are in the lowest part already, we can search left, in order to end on the minimum value.
 
+// This runs in O(logn) time and in O(1) space
+
 class Solution {
 public:
 

@@ -3,6 +3,16 @@
 
 using namespace std;
 
+// EXPLANATION
+
+// A trie is a tree data structure used to efficiently store and retrieve keys of strings. This is used for autocomplete for instance.
+// Essentially, this is a tree where every node represents a single character of a word. The words are then stored by chaining the characters in the trie.
+// This Trie should support insertion of words, as well as search of a certain word, and search of a prefix in any word.
+
+// This is a great and simple solution
+
+// All operations run in O(n) time and in O(1) space
+
 struct TrieNode
 {
     char* c = nullptr;
@@ -14,12 +24,9 @@ struct TrieNode
     TrieNode(char c, bool end = false) : c(&c), end(end) {}
 };
 
-// TODO
-
-// This is a great and simple solution
-
 class Trie {
 public:
+
     Trie()
     {
         root = new TrieNode();

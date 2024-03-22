@@ -8,13 +8,13 @@ using namespace std;
 
 // Given two strings a and b, find if they are the anagram of one another (meaning they have the exact same letters).
 
-// This is the best solution, runs in O(n) with memory O(26)
-
 // The solution here is first to check if both strings have the same length. if they are different, then we do not have an anagram.
 // Then we just go through both strings at the same time, registering every character in an array (which represents a map of all 26 letters of the alphabet in our case)
 // we then increase the counter for the corresponding letter for the first string, and decrease the counter for the second string.
 // After that, we just go through our 26 letters, and check if any value is different than 0. If all values are at 0, then we do have an anagram.
 // since all letters from both words canceled each other.
+
+// This runs in O(n) time and in O(26) space
 
 class Solution {
 public:

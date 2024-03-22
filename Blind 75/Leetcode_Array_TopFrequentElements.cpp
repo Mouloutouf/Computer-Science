@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <map>
 #include <set>
+
 using namespace std;
 
 // EXPLANATION
@@ -17,7 +18,7 @@ using namespace std;
 // This first solution was quite inefficient since I was counting and registering the numbers at the same time, meaning I had to erase and re-insert numbers constantly inside of a set.
 // This is therefore quite slow.
 
-class Solution {
+class BadSolution {
 public:
 
     vector<int> topKFrequent(vector<int>& nums, int k)
@@ -69,7 +70,9 @@ public:
 // every single value be the same number, which means the count of that number will be at most the size of the array. Therefore our array of arrays will also have at most a max count of input array size.
 // This can be improved however by using a priority queue, which does not need to be initialized with a large size, and can store elements in order of priority.
 
-class GoodSolution {
+// This runs in O(n) time and in O(n) space
+
+class Solution {
 public:
 
     vector<int> topKFrequent(vector<int>& nums, int k)

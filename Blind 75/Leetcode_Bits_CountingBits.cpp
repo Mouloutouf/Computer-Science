@@ -25,6 +25,8 @@ using namespace std;
 // we can compute their representation by just taking the previous representations of the numbers from 0 to 15, and just adding 1 for 16.
 // By doing this consistently, we are going to be able to compute the representation of all the numbers from 1, to 2, to 4, 8, 16, 32, etc. until there are no more numbers to count.
 
+// This runs in O(n) time and in O(1) space
+
 class Solution {
 public:
 

@@ -8,8 +8,9 @@ using namespace std;
 
 // Given an array nums of size n, with numbers ranging from 0 to n, find the missing number.
 
-// Good O(2n) solution with O(1) memory
 // Very straightforward, we just add up all numbers from 0 to n, then subtract all nums from the array, you get the missing number.
+
+// This runs in O(n) time and in O(1) space
 
 class Solution {
 public:

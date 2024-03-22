@@ -9,6 +9,8 @@ using namespace std;
 // Here we essentially loop, to retrieve the most left bit from the input n, then place it at the most right bit from the output result.
 // We progressively increment our position i, and do this until we have reversed the entire number n.
 
+// This runs in O(n) time and in O(1) space
+
 class Solution {
 public:
 

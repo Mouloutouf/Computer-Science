@@ -15,6 +15,8 @@ using namespace std;
 // and one time for even palindromes, with the left pointer starting at the current value, and the right pointer starting at the next value.
 // That way, we are sure to check all possible palindromes.
 
+// I do not know how fast in big O this runs
+
 class Solution {
 public:
 

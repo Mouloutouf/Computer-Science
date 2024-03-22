@@ -12,6 +12,8 @@ using namespace std;
 
 // See picture for problem explanation.
 
+// I do not know how fast in big O this runs
+
 class Solution {
 public:
 

@@ -15,6 +15,8 @@ using namespace std;
 // That way, if we find a match for the last section (the first one we should find), it will set that section to have the same value of the section before, hence it will be true.
 // If we then keep finding matches for each subsequent sections, we will eventually end up having the very first section set to true.
 
+// I do not know how fast in big O this runs
+
 class Solution {
 public:
 

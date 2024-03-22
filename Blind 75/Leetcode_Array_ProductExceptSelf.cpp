@@ -21,6 +21,8 @@ using namespace std;
 
 // This is the correct solution, where we traverse from one side then from the other, calculating the prefix and postfix as we go for each number, and multiplying everything in the result array.
 
+// This runs in O(n) time and in O(1) space
+
 class Solution {
 public:
 

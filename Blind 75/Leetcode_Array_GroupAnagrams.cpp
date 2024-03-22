@@ -19,6 +19,8 @@ using namespace std;
 // then assign the index of that new group to the map with the sorted copy as key.
 // Do this until all strings are matched within a group, then return the answer.
 
+// This runs in O(n) time and in O(n) space
+
 class Solution {
 public:
 

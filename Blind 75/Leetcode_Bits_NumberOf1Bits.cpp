@@ -9,7 +9,7 @@ using namespace std;
 // In order to do this, we need to loop to check if the first bit is a 0 or a 1, then shift everything to the right, in order to check the next bit
 // We do this until we have shifted all the bits, e.g. the number n has been reduced to a single binary value.
 
-// This code runs in O(1).
+// This runs in O(1) time and in O(1) space
 
 class Solution {
 public:

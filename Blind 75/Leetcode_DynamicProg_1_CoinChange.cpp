@@ -13,6 +13,8 @@ using namespace std;
 // By the end of the loop, we will have found the minimum number of coins necessary to make the final amount.
 // Or, if no combination of coins gets us to the amount, the final amount will remained unchanged from its default value, hence we can return -1.
 
+// I do not know how fast in big O this runs
+
 class Solution {
 public:
 
